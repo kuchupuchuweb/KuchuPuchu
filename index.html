@@ -46,16 +46,38 @@
             margin: 15px;
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(255, 117, 140, 0.3);
+            position: relative;
         }
         header h1 {
             margin: 0;
-            font-size: 19px; /* फॉंट साइज सेट किया ताकि सब एक लाइन में रहे */
-            white-space: nowrap; /* लाइन टूटने से रोकेगा */
+            font-size: 19px;
+            white-space: nowrap;
         }
         header p {
-            margin: 8px 0 0;
+            margin: 8px 0 12px;
             font-size: 13px;
             opacity: 0.95;
+        }
+
+        /* Aesthetic Cute Voice Button */
+        .voice-btn {
+            background-color: #ffffff;
+            color: #ff4081;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .voice-btn:hover {
+            background-color: #fff0f3;
+            transform: scale(1.05);
         }
 
         /* Category Filter Buttons */
@@ -101,6 +123,7 @@
             padding-bottom: 15px;
             transition: 0.3s;
             border: 1px solid #ffe6eb;
+            cursor: pointer;
         }
         .product-card:hover {
             transform: translateY(-5px);
@@ -124,8 +147,8 @@
             margin: 0 0 12px;
         }
         
-        /* Order Button */
-        .order-btn {
+        /* View Button inside Card */
+        .view-btn {
             background-color: #ff4081;
             color: white;
             border: none;
@@ -136,12 +159,97 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .order-btn:hover {
+        .view-btn:hover {
             background-color: #e03570;
+        }
+
+        /* Modals (Popups) Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 350px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            text-align: center;
+        }
+        .modal-content img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+        .modal-content h2 {
+            color: #ff4081;
+            font-size: 18px;
+            margin: 10px 0 5px;
+        }
+        .modal-content p {
+            color: #333;
+            font-size: 14px;
+            margin: 5px 0 15px;
+        }
+        .modal-content label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .modal-content input, .modal-content textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .submit-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            flex: 1;
+            cursor: pointer;
+        }
+        .close-btn {
+            background-color: #ccc;
+            color: #333;
+            border: none;
+            padding: 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+
+    <!-- Hidden Audio Element -->
+    <audio id="kuchuAudio" src="kuchu-puchu.mp3"></audio>
 
     <!-- Navbar -->
     <div class="navbar">
@@ -154,6 +262,10 @@
     <header>
         <h1>✨ Welcome to KuchuPuchu Trends ✨</h1>
         <p>Cutest treats for your favourite person 💕</p>
+        <!-- Aesthetic Cute Voice Play Button -->
+        <button class="voice-btn" onclick="playVoice()">
+            🎧 Tap to Play Message
+        </button>
     </header>
 
     <!-- Categories Bar -->
@@ -166,36 +278,144 @@
     <!-- Product Grid -->
     <div class="product-container" id="productGrid">
         <!-- Product 1 -->
-        <div class="product-card" data-category="accessory">
+        <div class="product-card" data-category="accessory" onclick="openDetailModal('Pink Bow Hair Clip', '₹ 199', 'https://via.placeholder.com/300', 'Super cute pink bow hair clip to enhance your daily aesthetic look.')">
             <img src="https://via.placeholder.com/150" alt="Accessory">
             <h3>Pink Bow Hair Clip</h3>
             <p>₹ 199</p>
-            <button class="order-btn" onclick="alert('Order feature coming soon!')">Order Now</button>
+            <button class="view-btn">View Product</button>
         </div>
         <!-- Product 2 -->
-        <div class="product-card" data-category="dress">
+        <div class="product-card" data-category="dress" onclick="openDetailModal('Cute Floral Dress', '₹ 899', 'https://via.placeholder.com/300', 'Beautiful floral summer dress made with soft and comfortable fabric.')">
             <img src="https://via.placeholder.com/150" alt="Dress">
             <h3>Cute Floral Dress</h3>
             <p>₹ 899</p>
-            <button class="order-btn" onclick="alert('Order feature coming soon!')">Order Now</button>
+            <button class="view-btn">View Product</button>
         </div>
         <!-- Product 3 -->
-        <div class="product-card" data-category="accessory">
+        <div class="product-card" data-category="accessory" onclick="openDetailModal('Aesthetic Bracelet', '₹ 299', 'https://via.placeholder.com/300', 'Trendy and aesthetic bracelet matching all kinds of casual outfits.')">
             <img src="https://via.placeholder.com/150" alt="Accessory">
             <h3>Aesthetic Bracelet</h3>
             <p>₹ 299</p>
-            <button class="order-btn" onclick="alert('Order feature coming soon!')">Order Now</button>
+            <button class="view-btn">View Product</button>
         </div>
         <!-- Product 4 -->
-        <div class="product-card" data-category="dress">
+        <div class="product-card" data-category="dress" onclick="openDetailModal('Party Wear Frock', '₹ 1,199', 'https://via.placeholder.com/300', 'Gorgeous party wear frock designed for special celebrations and evenings.')">
             <img src="https://via.placeholder.com/150" alt="Dress">
             <h3>Party Wear Frock</h3>
             <p>₹ 1,199</p>
-            <button class="order-btn" onclick="alert('Order feature coming soon!')">Order Now</button>
+            <button class="view-btn">View Product</button>
+        </div>
+    </div>
+
+    <!-- Step 1: Big Product Details Modal -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <img id="detailImg" src="" alt="Product Image">
+            <h2 id="detailTitle"></h2>
+            <p id="detailPrice" style="color: #ff4081; font-weight: bold; font-size: 18px;"></p>
+            <p id="detailDesc" style="color: #666; font-size: 13px;"></p>
+            
+            <div class="modal-buttons">
+                <button type="button" class="close-btn" onclick="closeDetailModal()">Close</button>
+                <button type="button" class="submit-whatsapp" style="background-color: #ff4081;" onclick="openOrderForm()">Order Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Order Form Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content" style="text-align: left;">
+            <h2 id="modalProductTitle" style="text-align: center;">Enter Order Details</h2>
+            <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+                <label>Your Name:</label>
+                <input type="text" id="custName" required placeholder="Enter your full name">
+
+                <label>Quantity (Max 20):</label>
+                <input type="number" id="custQty" min="1" max="20" value="1" required>
+
+                <label>Mobile Number:</label>
+                <input type="tel" id="custMobile" required placeholder="Enter mobile number">
+
+                <label>Delivery Address:</label>
+                <textarea id="custAddress" rows="2" required placeholder="House No, Street, City"></textarea>
+
+                <label>Pin Code:</label>
+                <input type="text" id="custPincode" required placeholder="Pin Code">
+
+                <div class="modal-buttons">
+                    <button type="button" class="close-btn" onclick="closeOrderModal()">Back</button>
+                    <button type="submit" class="submit-whatsapp">Send on WhatsApp</button>
+                </div>
+            </form>
         </div>
     </div>
 
     <script>
+        // Audio Play Function
+        function playVoice() {
+            let audio = document.getElementById('kuchuAudio');
+            audio.play().catch(error => {
+                alert("Please tap again to play audio!");
+            });
+        }
+
+        let currentProduct = "";
+        let currentPrice = "";
+        let currentImg = "";
+
+        function openDetailModal(name, price, img, desc) {
+            currentProduct = name;
+            currentPrice = price;
+            currentImg = img;
+            
+            document.getElementById('detailTitle').innerText = name;
+            document.getElementById('detailPrice').innerText = price;
+            document.getElementById('detailImg').src = img;
+            document.getElementById('detailDesc').innerText = desc;
+            
+            document.getElementById('detailModal').style.display = 'flex';
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        function openOrderForm() {
+            closeDetailModal();
+            document.getElementById('modalProductTitle').innerText = "Order: " + currentProduct;
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById('custName').value;
+            let qty = document.getElementById('custQty').value;
+            let mobile = document.getElementById('custMobile').value;
+            let address = document.getElementById('custAddress').value;
+            let pincode = document.getElementById('custPincode').value;
+
+            // अपना WhatsApp नंबर यहाँ डालें (91 के साथ, जैसे 919876543210)
+            let myPhoneNumber = "919876543210"; 
+
+            let message = "✨ New Order - KuchuPuchu Trends ✨\n\n" +
+                          "📦 Product: " + currentProduct + "\n" +
+                          "💰 Price: " + currentPrice + "\n" +
+                          "🔢 Quantity: " + qty + "\n\n" +
+                          "👤 Name: " + name + "\n" +
+                          "📞 Mobile: " + mobile + "\n" +
+                          "🏠 Address: " + address + "\n" +
+                          "📍 Pin Code: " + pincode;
+
+            let url = "https://wa.me/" + myPhoneNumber + "?text=" + encodeURIComponent(message);
+            window.open(url, '_blank');
+            closeOrderModal();
+        }
+
         function filterProducts(category, event) {
             let buttons = document.querySelectorAll('.categories button');
             buttons.forEach(btn => btn.classList.remove('active'));

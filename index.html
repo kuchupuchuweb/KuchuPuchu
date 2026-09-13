@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KuchuPuchu Trends</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff5f7; /* सॉफ्ट पिंक और व्हाइट एस्थेटिक बैकग्राउंड */
+        }
+        
+        /* टॉप नेविगेशन बार - ब्रांड नेम के साथ */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(255, 64, 129, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ff4081;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .brand-logo span {
+            color: #333;
+        }
+
+        /* हेडर बैनर */
+        header {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin: 15px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.3);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+        header p {
+            margin: 8px 0 0;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        /* कैटेगरी फिल्टर बटन */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 10px 15px 20px;
+        }
+        .categories button {
+            padding: 9px 20px;
+            border: none;
+            background-color: #ffffff;
+            color: #ff4081;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: 0.3s ease;
+        }
+        .categories button.active, .categories button:hover {
+            background-color: #ff4081;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* प्रोडक्ट्स ग्रिड लेआउट */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 18px;
+            padding: 0 15px 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.08);
+            text-align: center;
+            padding-bottom: 15px;
+            transition: 0.3s;
+            border: 1px solid #ffe6eb;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.15);
+        }
+        .product-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid #ffe6eb;
+        }
+        .product-card h3 {
+            font-size: 15px;
+            margin: 12px 10px 5px;
+            color: #333;
+        }
+        .product-card p {
+            color: #ff4081;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0 0 12px;
+        }
+        
+        /* आर्डर बटन */
+        .order-btn {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .order-btn:hover {
+            background-color: #e03570;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- टॉप नेविगेशन बार जहाँ कोने में नाम दिखेगा -->
+    <div class="navbar">
+        <div class="brand-logo">
+            🛍️ KuchuPuchu <span>Trends</span>
+        </div>
+    </div>
+
+    <!-- मेन बैनर -->
+    <header>
+        <h1>✨ स्वागत है आपका ✨</h1>
+        <p>बेस्ट एसेसरीज और स्टाइलिश ड्रेसेस का एक्सक्लूसिव कलेक्शन</p>
+    </header>
+
+    <!-- कैटेगरी बार -->
+    <div class="categories">
+        <button class="active" onclick="filterProducts('all', event)">सब कुछ</button>
+        <button onclick="filterProducts('accessory', event)">एसेसरीज</button>
+        <button onclick="filterProducts('dress', event)">ड्रेसेस</button>
+    </div>
+
+    <!-- प्रोडक्ट्स की लिस्ट -->
+    <div class="product-container" id="productGrid">
+        <!-- प्रोडक्ट 1 -->
+        <div class="product-card" data-category="accessory">
+            <img src="https://via.placeholder.com/150" alt="Accessory">
+            <h3>पिंक बो हेयर क्लिप</h3>
+            <p>₹ 199</p>
+            <button class="order-btn" onclick="alert('ऑर्डर करने के लिए संपर्क करें!')">ऑर्डर करें</button>
+        </div>
+        <!-- प्रोडक्ट 2 -->
+        <div class="product-card" data-category="dress">
+            <img src="https://via.placeholder.com/150" alt="Dress">
+            <h3>क्यूट फ्लोरल ड्रेस</h3>
+            <p>₹ 899</p>
+            <button class="order-btn" onclick="alert('ऑर्डर करने के लिए संपर्क करें!')">ऑर्डर करें</button>
+        </div>
+        <!-- प्रोडक्ट 3 -->
+        <div class="product-card" data-category="accessory">
+            <img src="https://via.placeholder.com/150" alt="Accessory">
+            <h3>एस्थेटिक ब्रेसलेट</h3>
+            <p>₹ 299</p>
+            <button class="order-btn" onclick="alert('ऑर्डर करने के लिए संपर्क करें!')">ऑर्डर करें</button>
+        </div>
+        <!-- प्रोडक्ट 4 -->
+        <div class="product-card" data-category="dress">
+            <img src="https://via.placeholder.com/150" alt="Dress">
+            <h3>पार्टी वियर फ्रॉक</h3>
+            <p>₹ 1,199</p>
+            <button class="order-btn" onclick="alert('ऑर्डर करने के लिए संपर्क करें!')">ऑर्डर करें</button>
+        </div>
+    </div>
+
+    <script>
+        function filterProducts(category, event) {
+            let buttons = document.querySelectorAll('.categories button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            let products = document.querySelectorAll('.product-card');
+            products.forEach(product => {
+                if (category === 'all' || product.getAttribute('data-category') === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

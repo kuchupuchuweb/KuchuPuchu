@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,10 @@
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff5f7; /* सॉफ्ट पिंक और व्हाइट एस्थेटिक बैकग्राउंड */
+            background-color: #fff5f7;
         }
         
-        /* टॉप नेविगेशन बार - ब्रांड नेम के साथ */
+        /* Top Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -37,7 +37,7 @@
             color: #333;
         }
 
-        /* हेडर बैनर */
+        /* Header Banner */
         header {
             background: linear-gradient(135deg, #ff758c, #ff7eb3);
             color: white;
@@ -49,23 +49,23 @@
         }
         header h1 {
             margin: 0;
-            font-size: 26px;
+            font-size: 24px;
         }
         header p {
             margin: 8px 0 0;
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.95;
         }
 
-        /* कैटेगरी फिल्टर बटन */
+        /* Category Filter Buttons */
         .categories {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             padding: 10px 15px 20px;
         }
         .categories button {
-            padding: 9px 20px;
+            padding: 9px 18px;
             border: none;
             background-color: #ffffff;
             color: #ff4081;
@@ -82,7 +82,7 @@
             transform: translateY(-2px);
         }
 
-        /* प्रोडक्ट्स ग्रिड लेआउट */
+        /* Product Grid Layout */
         .product-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -123,7 +123,7 @@
             margin: 0 0 12px;
         }
         
-        /* आर्डर बटन */
+        /* Order Button */
         .order-btn {
             background-color: #ff4081;
             color: white;
@@ -142,55 +142,55 @@
 </head>
 <body>
 
-    <!-- टॉप नेविगेशन बार जहाँ कोने में नाम दिखेगा -->
+    <!-- Navbar -->
     <div class="navbar">
         <div class="brand-logo">
             🛍️ KuchuPuchu <span>Trends</span>
         </div>
     </div>
 
-    <!-- मेन बैनर -->
+    <!-- Main Banner -->
     <header>
-        <h1>✨ स्वागत है आपका ✨</h1>
-        <p>बेस्ट एसेसरीज और स्टाइलिश ड्रेसेस का एक्सक्लूसिव कलेक्शन</p>
+        <h1>✨ Welcome to KuchuPuchu Trends ✨</h1>
+        <p>Cutest treats for your favourite person 💕</p>
     </header>
 
-    <!-- कैटेगरी बार -->
+    <!-- Categories Bar -->
     <div class="categories">
-        <button class="active" onclick="filterProducts('all', event)">सब कुछ</button>
-        <button onclick="filterProducts('accessory', event)">एसेसरीज</button>
-        <button onclick="filterProducts('dress', event)">ड्रेसेस</button>
+        <button class="active" onclick="filterProducts('all', event)">All</button>
+        <button onclick="filterProducts('accessory', event)">Accessories</button>
+        <button onclick="filterProducts('dress', event)">Dresses</button>
     </div>
 
-    <!-- प्रोडक्ट्स की लिस्ट -->
+    <!-- Product Grid -->
     <div class="product-container" id="productGrid">
-        <!-- प्रोडक्ट 1 -->
+        <!-- Product 1 -->
         <div class="product-card" data-category="accessory">
             <img src="https://via.placeholder.com/150" alt="Accessory">
-            <h3>पिंक बो हेयर क्लिप</h3>
+            <h3>Pink Bow Hair Clip</h3>
             <p>₹ 199</p>
-            <button class="order-btn" onclick="alert('ऑर्डर करने के लिए संपर्क करें!')">ऑर्डर करें</button>
+            <button class="order-btn" onclick="alert('Order feature coming soon!')">Order Now</button>
         </div>
-        <!-- प्रोडक्ट 2 -->
+        <!-- Product 2 -->
         <div class="product-card" data-category="dress">
             <img src="https://via.placeholder.com/150" alt="Dress">
-            <h3>क्यूट फ्लोरल ड्रेस</h3>
+            <h3>Cute Floral Dress</h3>
             <p>₹ 899</p>
-            <button class="order-btn" onclick="alert('ऑर्डर करने के लिए संपर्क करें!')">ऑर्डर करें</button>
+            <button class="order-btn" onclick="alert('Order feature coming soon!')">Order Now</button>
         </div>
-        <!-- प्रोडक्ट 3 -->
+        <!-- Product 3 -->
         <div class="product-card" data-category="accessory">
             <img src="https://via.placeholder.com/150" alt="Accessory">
-            <h3>एस्थेटिक ब्रेसलेट</h3>
+            <h3>Aesthetic Bracelet</h3>
             <p>₹ 299</p>
-            <button class="order-btn" onclick="alert('ऑर्डर करने के लिए संपर्क करें!')">ऑर्डर करें</button>
+            <button class="order-btn" onclick="alert('Order feature coming soon!')">Order Now</button>
         </div>
-        <!-- प्रोडक्ट 4 -->
+        <!-- Product 4 -->
         <div class="product-card" data-category="dress">
             <img src="https://via.placeholder.com/150" alt="Dress">
-            <h3>पार्टी वियर फ्रॉक</h3>
+            <h3>Party Wear Frock</h3>
             <p>₹ 1,199</p>
-            <button class="order-btn" onclick="alert('ऑर्डर करने के लिए संपर्क करें!')">ऑर्डर करें</button>
+            <button class="order-btn" onclick="alert('Order feature coming soon!')">Order Now</button>
         </div>
     </div>
 

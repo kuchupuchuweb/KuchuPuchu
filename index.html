@@ -136,9 +136,10 @@
             border-bottom: 1px solid #ffe6eb;
         }
         .product-card h3 {
-            font-size: 15px;
+            font-size: 14px;
             margin: 12px 10px 5px;
             color: #333;
+            padding: 0 5px;
         }
         .product-card p {
             color: #ff4081;
@@ -175,6 +176,8 @@
             background-color: rgba(0,0,0,0.5);
             align-items: center;
             justify-content: center;
+            overflow-y: auto;
+            padding: 20px 0;
         }
         .modal-content {
             background-color: white;
@@ -185,6 +188,8 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             position: relative;
             text-align: center;
+            max-height: 85vh;
+            overflow-y: auto;
         }
         .modal-content img {
             width: 100%;
@@ -195,13 +200,14 @@
         }
         .modal-content h2 {
             color: #ff4081;
-            font-size: 18px;
+            font-size: 16px;
             margin: 10px 0 5px;
         }
         .modal-content p {
             color: #333;
-            font-size: 14px;
+            font-size: 13px;
             margin: 5px 0 15px;
+            text-align: left;
         }
         .modal-content label {
             font-size: 12px;
@@ -211,7 +217,7 @@
             margin-top: 10px;
             text-align: left;
         }
-        .modal-content input, .modal-content textarea {
+        .modal-content input, .modal-content textarea, .modal-content select {
             width: 100%;
             padding: 8px;
             margin-top: 4px;
@@ -277,32 +283,11 @@
 
     <!-- Product Grid -->
     <div class="product-container" id="productGrid">
-        <!-- Product 1 -->
-        <div class="product-card" data-category="accessory" onclick="openDetailModal('Pink Bow Hair Clip', '₹ 199', 'https://via.placeholder.com/300', 'Super cute pink bow hair clip to enhance your daily aesthetic look.')">
-            <img src="https://via.placeholder.com/150" alt="Accessory">
-            <h3>Pink Bow Hair Clip</h3>
-            <p>₹ 199</p>
-            <button class="view-btn">View Product</button>
-        </div>
-        <!-- Product 2 -->
-        <div class="product-card" data-category="dress" onclick="openDetailModal('Cute Floral Dress', '₹ 899', 'https://via.placeholder.com/300', 'Beautiful floral summer dress made with soft and comfortable fabric.')">
-            <img src="https://via.placeholder.com/150" alt="Dress">
-            <h3>Cute Floral Dress</h3>
-            <p>₹ 899</p>
-            <button class="view-btn">View Product</button>
-        </div>
-        <!-- Product 3 -->
-        <div class="product-card" data-category="accessory" onclick="openDetailModal('Aesthetic Bracelet', '₹ 299', 'https://via.placeholder.com/300', 'Trendy and aesthetic bracelet matching all kinds of casual outfits.')">
-            <img src="https://via.placeholder.com/150" alt="Accessory">
-            <h3>Aesthetic Bracelet</h3>
-            <p>₹ 299</p>
-            <button class="view-btn">View Product</button>
-        </div>
-        <!-- Product 4 -->
-        <div class="product-card" data-category="dress" onclick="openDetailModal('Party Wear Frock', '₹ 1,199', 'https://via.placeholder.com/300', 'Gorgeous party wear frock designed for special celebrations and evenings.')">
-            <img src="https://via.placeholder.com/150" alt="Dress">
-            <h3>Party Wear Frock</h3>
-            <p>₹ 1,199</p>
+        <!-- Product 1: Kashmiri Ghungroo Bangles -->
+        <div class="product-card" data-category="accessory" onclick="openDetailModal('Trending Kashmiri Ghungroo with Nag Bangles (Light Multi Color)', '₹ 249', 'https://i.ibb.co/fYJYzrVJ/Screenshot-2026-0913-191612.png', 'Stone Type: Cubic Zirconia/American Diamond\nPlating: No Plating\nSizing: Non-Adjustable\nOccasion: Ethnic Party\nColor: Multicolor\nNet Quantity: 1')">
+            <img src="https://i.ibb.co/fYJYzrVJ/Screenshot-2026-0913-191612.png" alt="Kashmiri Ghungroo Bangles">
+            <h3>Trending Kashmiri Ghungroo Bangles</h3>
+            <p>₹ 249</p>
             <button class="view-btn">View Product</button>
         </div>
     </div>
@@ -312,8 +297,8 @@
         <div class="modal-content">
             <img id="detailImg" src="" alt="Product Image">
             <h2 id="detailTitle"></h2>
-            <p id="detailPrice" style="color: #ff4081; font-weight: bold; font-size: 18px;"></p>
-            <p id="detailDesc" style="color: #666; font-size: 13px;"></p>
+            <p id="detailPrice" style="color: #ff4081; font-weight: bold; font-size: 18px; text-align: center;"></p>
+            <p id="detailDesc" style="white-space: pre-line; background: #fff5f7; padding: 10px; border-radius: 8px; font-size: 12px;"></p>
             
             <div class="modal-buttons">
                 <button type="button" class="close-btn" onclick="closeDetailModal()">Close</button>
@@ -322,16 +307,25 @@
         </div>
     </div>
 
-    <!-- Step 2: Order Form Modal -->
+    <!-- Step 2: Order Form Modal with Size & Quantity -->
     <div id="orderModal" class="modal">
         <div class="modal-content" style="text-align: left;">
             <h2 id="modalProductTitle" style="text-align: center;">Enter Order Details</h2>
             <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
-                <label>Your Name:</label>
-                <input type="text" id="custName" required placeholder="Enter your full name">
+                <label>Select Size:</label>
+                <select id="custSize" required>
+                    <option value="" disabled selected>Choose your size</option>
+                    <option value="2.2">2.2</option>
+                    <option value="2.4">2.4</option>
+                    <option value="2.6">2.6</option>
+                    <option value="2.8">2.8</option>
+                </select>
 
                 <label>Quantity (Max 20):</label>
                 <input type="number" id="custQty" min="1" max="20" value="1" required>
+
+                <label>Your Name:</label>
+                <input type="text" id="custName" required placeholder="Enter your full name">
 
                 <label>Mobile Number:</label>
                 <input type="tel" id="custMobile" required placeholder="Enter mobile number">
@@ -361,12 +355,10 @@
 
         let currentProduct = "";
         let currentPrice = "";
-        let currentImg = "";
 
         function openDetailModal(name, price, img, desc) {
             currentProduct = name;
             currentPrice = price;
-            currentImg = img;
             
             document.getElementById('detailTitle').innerText = name;
             document.getElementById('detailPrice').innerText = price;
@@ -393,8 +385,9 @@
         function sendToWhatsApp(event) {
             event.preventDefault();
             
-            let name = document.getElementById('custName').value;
+            let size = document.getElementById('custSize').value;
             let qty = document.getElementById('custQty').value;
+            let name = document.getElementById('custName').value;
             let mobile = document.getElementById('custMobile').value;
             let address = document.getElementById('custAddress').value;
             let pincode = document.getElementById('custPincode').value;
@@ -405,6 +398,7 @@
             let message = "✨ New Order - KuchuPuchu Trends ✨\n\n" +
                           "📦 Product: " + currentProduct + "\n" +
                           "💰 Price: " + currentPrice + "\n" +
+                          "📏 Size: " + size + "\n" +
                           "🔢 Quantity: " + qty + "\n\n" +
                           "👤 Name: " + name + "\n" +
                           "📞 Mobile: " + mobile + "\n" +

@@ -350,35 +350,20 @@
         <button onclick="filterProducts('dress', event)">Dresses</button>
     </div>
 
-    <!-- Product Grid (2 items per row) -->
+    <!-- Product Grid (Only 1 product active now) -->
     <div class="product-container" id="productGrid">
-        <!-- Product 1: Kashmiri Ghungroo Bangles (Multiple images comma separated) -->
+        <!-- Product 1: Kashmiri Ghungroo Bangles -->
         <div class="product-card" data-category="accessory" onclick="openDetailModal(
             'Trending Kashmiri Ghungroo with Nag Bangles (Light Multi Color)', 
             '₹ 249', 
             'https://i.ibb.co/fYJYzrVJ/Screenshot-2026-0913-191612.png,https://i.ibb.co/fYJYzrVJ/Screenshot-2026-0913-191612.png', 
-            'Stone Type: Cubic Zirconia/American Diamond\nPlating: No Plating\nSizing: Non-Adjustable\nOccasion: Ethnic Party\nColor: Multicolor\nNet Quantity: 1'
+            'Stone Type: Cubic Zirconia / American Diamond\nPlating: No Plating\nSizing: Non-Adjustable\nOccasion: Ethnic Party\nColor: Multicolor'
         )">
             <div class="product-img-box">
                 <img src="https://i.ibb.co/fYJYzrVJ/Screenshot-2026-0913-191612.png" alt="Kashmiri Ghungroo Bangles">
             </div>
             <h3>Trending Kashmiri Ghungroo Bangles</h3>
             <p>₹ 249</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <!-- Product 2 (Dummy item for testing 2-column layout) -->
-        <div class="product-card" data-category="accessory" onclick="openDetailModal(
-            'Aesthetic Pearl Bracelet', 
-            '₹ 199', 
-            'https://via.placeholder.com/400,https://via.placeholder.com/400/ff758c', 
-            'Beautiful aesthetic pearl bracelet suitable for daily wear and gifting.\nMaterial: High Quality Pearls\nOccasion: Casual & Party'
-        )">
-            <div class="product-img-box">
-                <img src="https://via.placeholder.com/150" alt="Pearl Bracelet">
-            </div>
-            <h3>Aesthetic Pearl Bracelet</h3>
-            <p>₹ 199</p>
             <button class="view-btn">View Product</button>
         </div>
     </div>
@@ -452,6 +437,7 @@
 
         let currentProduct = "";
         let currentPrice = "";
+        let currentImgUrl = ""; 
 
         function openDetailModal(name, price, imgString, desc) {
             currentProduct = name;
@@ -461,21 +447,23 @@
             document.getElementById('detailPrice').innerText = price;
             document.getElementById('detailDesc').innerText = desc;
             
-            // Handle Multiple Images separated by comma
             let images = imgString.split(',');
             let mainImg = document.getElementById('mainPreviewImg');
             let thumbContainer = document.getElementById('thumbnailContainer');
             
             thumbContainer.innerHTML = '';
-            mainImg.src = images[0];
+            mainImg.src = images[0].trim();
+            currentImgUrl = images[0].trim(); 
 
             images.forEach((imgUrl, index) => {
                 let thumb = document.createElement('img');
-                thumb.src = imgUrl.trim();
+                let cleanUrl = imgUrl.trim();
+                thumb.src = cleanUrl;
                 if(index === 0) thumb.classList.add('active-thumb');
                 
                 thumb.onclick = function() {
-                    mainImg.src = thumb.src;
+                    mainImg.src = cleanUrl;
+                    currentImgUrl = cleanUrl; 
                     let allThumbs = thumbContainer.querySelectorAll('img');
                     allThumbs.forEach(t => t.classList.remove('active-thumb'));
                     thumb.classList.add('active-thumb');
@@ -510,12 +498,12 @@
             let address = document.getElementById('custAddress').value;
             let pincode = document.getElementById('custPincode').value;
 
-            // आपका WhatsApp नंबर सेट कर दिया गया है
             let myPhoneNumber = "918852839726"; 
 
             let message = "✨ New Order - KuchuPuchu Trends ✨\n\n" +
                           "📦 Product: " + currentProduct + "\n" +
                           "💰 Price: " + currentPrice + "\n" +
+                          "🖼️ Photo Link: " + currentImgUrl + "\n\n" +
                           "📏 Size: " + size + "\n" +
                           "🔢 Quantity: " + qty + "\n\n" +
                           "👤 Name: " + name + "\n" +

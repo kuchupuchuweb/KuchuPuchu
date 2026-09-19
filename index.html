@@ -592,11 +592,14 @@
         <div class="modal-content order-form-container">
             <h2 id="modalProductTitle" style="text-align: center; font-size: 16px; color: #ff4081; margin-bottom: 15px;">Enter Order Details</h2>
             <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
-                <label>Select Size / Variant:</label>
+                <label>Select Size:</label>
                 <select id="custSize" required>
-                    <option value="" disabled selected>Choose option</option>
-                    <option value="Standard">Standard Size</option>
-                    <option value="Free Size">Free Size</option>
+                    <option value="" disabled selected>Choose size</option>
+                    <option value="S">S (Small)</option>
+                    <option value="M">M (Medium)</option>
+                    <option value="L">L (Large)</option>
+                    <option value="XL">XL (Extra Large)</option>
+                    <option value="XXL">XXL (Double Extra Large)</option>
                 </select>
 
                 <label>Quantity (Max 20):</label>
@@ -699,7 +702,7 @@
                           "📦 Product: " + currentProduct + "\n" +
                           "💰 Price: " + currentPrice + "\n" +
                           "🖼️ Photo Link: " + currentImgUrl + "\n\n" +
-                          "📏 Size/Variant: " + size + "\n" +
+                          "📏 Size: " + size + "\n" +
                           "🔢 Quantity: " + qty + "\n\n" +
                           "👤 Name: " + name + "\n" +
                           "📞 Mobile: " + mobile + "\n" +

@@ -181,7 +181,7 @@
             background-color: #e03570;
         }
 
-        /* MEESHO STYLE FULL-SCREEN / BOTTOM-SHEET MODAL */
+        /* MODALS */
         .modal {
             display: none;
             position: fixed;
@@ -319,6 +319,70 @@
             box-sizing: border-box;
             font-size: 14px;
             background: #fafafa;
+        }
+
+        /* Success & Tracking Screen Styling */
+        .success-box {
+            text-align: center;
+            padding: 10px;
+        }
+        .green-tick {
+            width: 70px;
+            height: 70px;
+            background-color: #25D366;
+            color: white;
+            font-size: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+        .tracking-timeline {
+            text-align: left;
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+            position: relative;
+        }
+        .tracking-timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 5px;
+            bottom: 5px;
+            width: 3px;
+            background: #25D366;
+        }
+        .tracking-step {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            color: #444;
+        }
+        .tracking-step::before {
+            content: '✓';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tracking-step.pending::before {
+            content: '•';
+            background: #ccc;
+        }
+        .tracking-step.pending {
+            color: #999;
         }
     </style>
 </head>
@@ -831,7 +895,7 @@
     <div id="orderModal" class="modal">
         <div class="modal-content order-form-container">
             <h2 id="modalProductTitle" style="text-align: center; font-size: 16px; color: #ff4081; margin-bottom: 15px;">Enter Order Details</h2>
-            <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+            <form id="whatsappForm" onsubmit="confirmOrderAction(event)">
                 <label>Select Size:</label>
                 <select id="custSize" required>
                     <option value="" disabled selected>Choose size</option>
@@ -864,9 +928,43 @@
 
                 <div class="modal-buttons" style="margin-top: 20px;">
                     <button type="button" class="close-btn" onclick="closeOrderForm()">Back</button>
-                    <button type="submit" class="submit-whatsapp">Send on WhatsApp</button>
+                    <button type="submit" class="submit-whatsapp">Confirm Order</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Meesho Style Order Tracking / Success Modal -->
+    <div id="trackingModal" class="modal">
+        <div class="modal-content success-box">
+            <div class="green-tick">✓</div>
+            <h2 style="color: #25D366; margin-bottom: 5px;">Order Confirmed!</h2>
+            <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Thank you for shopping with KuchuPuchu Trends 💕</p>
+            
+            <div style="background: #fff5f7; padding: 12px; border-radius: 10px; text-align: left; font-size: 13px; margin-bottom: 15px;">
+                <div style="font-weight: bold; color: #ff4081; margin-bottom: 4px;" id="trackProductName"></div>
+                <div style="color: #444;" id="trackDetailsSummary"></div>
+            </div>
+
+            <div style="font-weight: bold; font-size: 13px; text-align: left; color: #333; margin-bottom: 5px;">Live Order Status:</div>
+            <ul class="tracking-timeline">
+                <li class="tracking-step">
+                    <strong>Order Confirmed</strong><br><span style="font-size: 11px; color: #666;">Day 1: Order successfully placed & verified</span>
+                </li>
+                <li class="tracking-step pending">
+                    <strong>Order Shipped / Packed</strong><br><span style="font-size: 11px; color: #888;">Day 2: Quality check & packaging in progress</span>
+                </li>
+                <li class="tracking-step pending">
+                    <strong>Out for Delivery / In Route</strong><br><span style="font-size: 11px; color: #888;">Day 3: Dispatched to your nearest hub</span>
+                </li>
+                <li class="tracking-step pending">
+                    <strong>Order Delivered</strong><br><span style="font-size: 11px; color: #888;">Day 4: Expected delivery</span>
+                </li>
+            </ul>
+
+            <div class="modal-buttons" style="margin-top: 15px;">
+                <button type="button" class="submit-whatsapp" style="background-color: #ff4081;" onclick="closeTrackingModal()">Done / Continue Shopping</button>
+            </div>
         </div>
     </div>
 
@@ -931,7 +1029,11 @@
             document.getElementById('orderModal').style.display = 'none';
         }
 
-        function sendToWhatsApp(event) {
+        function closeTrackingModal() {
+            document.getElementById('trackingModal').style.display = 'none';
+        }
+
+        function confirmOrderAction(event) {
             event.preventDefault();
             
             let size = document.getElementById('custSize').value;
@@ -941,22 +1043,19 @@
             let address = document.getElementById('custAddress').value;
             let pincode = document.getElementById('custPincode').value;
 
-            let myPhoneNumber = "918852839726"; 
+            // Set tracking summary details
+            document.getElementById('trackProductName').innerText = currentProduct + " (" + currentPrice + ")";
+            document.getElementById('trackDetailsSummary').innerHTML = 
+                "<b>Size:</b> " + size + " | <b>Qty:</b> " + qty + "<br>" +
+                "<b>Customer:</b> " + name + " (" + mobile + ")<br>" +
+                "<b>Delivery To:</b> " + address + " - " + pincode;
 
-            let message = "✨ New Order - KuchuPuchu Trends ✨\n\n" +
-                          "📦 Product: " + currentProduct + "\n" +
-                          "💰 Price: " + currentPrice + "\n" +
-                          "🖼️ Photo Link: " + currentImgUrl + "\n\n" +
-                          "📏 Size: " + size + "\n" +
-                          "🔢 Quantity: " + qty + "\n\n" +
-                          "👤 Name: " + name + "\n" +
-                          "📞 Mobile: " + mobile + "\n" +
-                          "🏠 Address: " + address + "\n" +
-                          "📍 Pin Code: " + pincode;
-
-            let url = "https://wa.me/" + myPhoneNumber + "?text=" + encodeURIComponent(message);
-            window.open(url, '_blank');
+            // Close order form and show Meesho style tracking modal
             closeOrderForm();
+            document.getElementById('trackingModal').style.display = 'flex';
+            
+            // Reset form
+            document.getElementById('whatsappForm').reset();
         }
 
         function filterProducts(category, event) {

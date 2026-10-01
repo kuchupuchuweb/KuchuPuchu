@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,85 +11,133 @@
             margin: 0;
             padding: 0;
             background-color: #fff5f7;
+            color: #333;
         }
-        
-        /* Top Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 12px 16px;
             background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(255, 64, 129, 0.1);
+            box-shadow: 0 2px 10px rgba(255, 64, 129, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         .brand-logo {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             color: #ff4081;
-            letter-spacing: 0.5px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
-        .brand-logo span {
-            color: #333;
+        .brand-subtitle {
+            font-size: 11px;
+            color: #666;
+            margin: 2px 0 10px 16px;
         }
-
-        /* Header Banner */
-        header {
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        .login-btn {
+            background-color: #1a1a2e;
             color: white;
-            text-align: center;
-            padding: 25px 15px;
-            margin: 15px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.3);
-            position: relative;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 19px;
-            white-space: nowrap;
-        }
-        header p {
-            margin: 8px 0 12px;
-            font-size: 13px;
-            opacity: 0.95;
-        }
-
-        /* Aesthetic Cute Voice Button */
-        .voice-btn {
-            background-color: #ffffff;
-            color: #ff4081;
             border: none;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: 0.2s;
-            display: inline-flex;
+        }
+        .hero-card {
+            background: linear-gradient(135deg, #fff0f3, #ffe6eb);
+            border: 1px solid #ffd6e0;
+            border-radius: 18px;
+            padding: 18px;
+            margin: 12px 16px;
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.08);
+        }
+        .hero-card h2 { font-size: 20px; color: #222; margin: 0 0 8px; }
+        .hero-card p { font-size: 12px; color: #555; margin: 0 0 15px; }
+        .shop-col-btn {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 0 16px 12px;
+        }
+        .feature-box {
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid #ffe6eb;
+            text-align: center;
+            font-size: 11px;
+            color: #444;
+            font-weight: 600;
+        }
+        .action-pills {
+            display: flex;
+            gap: 8px;
+            padding: 0 16px 15px;
+            overflow-x: auto;
+        }
+        .pill-btn {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .pill-btn.insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .pill-btn.wheel { background: linear-gradient(135deg, #8a2be2, #ff4081); }
+        
+        .utilities-bar {
+            display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            padding: 0 16px 15px;
+            overflow-x: auto;
         }
-        .voice-btn:hover {
-            background-color: #fff0f3;
-            transform: scale(1.05);
+        .search-box {
+            flex: 1;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            padding: 8px 15px;
+            font-size: 13px;
+            outline: none;
         }
-
-        /* Category Filter Buttons */
+        .util-icon-btn {
+            background: white;
+            border: 1px solid #ffe6eb;
+            padding: 8px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            color: #444;
+            cursor: pointer;
+            white-space: nowrap;
+        }
         .categories {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            padding: 10px 15px 20px;
+            gap: 12px;
+            padding: 0 16px 20px;
         }
         .categories button {
-            padding: 8px 16px;
+            flex: 1;
+            padding: 10px;
             border: none;
             background-color: #ffffff;
             color: #ff4081;
@@ -96,21 +145,17 @@
             border-radius: 25px;
             font-size: 13px;
             font-weight: bold;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         .categories button.active, .categories button:hover {
             background-color: #ff4081;
             color: white;
-            transform: translateY(-2px);
         }
-
-        /* Product Grid Layout (2 items per row) */
         .product-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            padding: 0 12px 40px;
+            padding: 0 12px 50px;
             max-width: 600px;
             margin: auto;
         }
@@ -119,69 +164,57 @@
             border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(255, 64, 129, 0.08);
-            text-align: center;
-            padding-bottom: 12px;
-            transition: 0.3s;
+            text-align: left;
+            padding-bottom: 10px;
             border: 1px solid #ffe6eb;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(255, 64, 129, 0.15);
-        }
         .product-img-box {
             width: 100%;
-            height: 160px;
+            height: 170px;
             background-color: #fff5f7;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #ffe6eb;
             overflow: hidden;
         }
-        .product-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .product-card h3 {
-            font-size: 13px;
-            margin: 8px 8px 4px;
-            color: #333;
-            font-weight: 600;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .product-card p {
+        .product-card img { width: 100%; height: 100%; object-fit: cover; }
+        .product-info-pad { padding: 8px 10px 0; }
+        .product-card h3 { font-size: 12px; margin: 0 0 4px; color: #333; font-weight: 600; }
+        .product-card .price { color: #ff4081; font-weight: bold; font-size: 15px; margin: 0 0 6px; }
+        .view-details-btn {
+            background-color: #ffe6eb;
             color: #ff4081;
-            font-weight: bold;
-            font-size: 14px;
-            margin: 0 0 10px;
-        }
-        
-        .view-btn {
-            background-color: #ff4081;
-            color: white;
             border: none;
-            padding: 6px 12px;
-            border-radius: 15px;
+            padding: 7px;
+            border-radius: 20px;
             font-size: 11px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.2s;
-            margin: 0 auto;
-            width: 85%;
+            width: calc(100% - 20px);
+            margin: 0 10px 6px;
+            text-align: center;
         }
-        .view-btn:hover {
-            background-color: #e03570;
+        .floating-insta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+            z-index: 1500;
+            text-decoration: none;
         }
-
-        /* MODALS */
         .modal {
             display: none;
             position: fixed;
@@ -193,7 +226,6 @@
             background-color: rgba(0,0,0,0.6);
             align-items: flex-end;
             justify-content: center;
-            box-sizing: border-box;
         }
         .modal-content {
             background-color: white;
@@ -205,874 +237,205 @@
             max-height: 90vh;
             overflow-y: auto;
             box-sizing: border-box;
-            box-shadow: 0 -5px 25px rgba(0,0,0,0.2);
-            position: relative;
-            animation: slideUp 0.3s ease-out;
         }
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-
-        /* Large Product Image Preview & Thumbnails */
-        .main-preview-img {
-            width: 100%;
-            height: 320px;
-            object-fit: contain;
-            background-color: #fff5f7;
-            border-radius: 12px;
-            border: 1px solid #ffe6eb;
-            margin-bottom: 10px;
-        }
-        .thumbnail-container {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 15px;
-            overflow-x: auto;
-            padding-bottom: 5px;
-        }
-        .thumbnail-container img {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid #ddd;
-            cursor: pointer;
-            flex-shrink: 0;
-            transition: 0.2s;
-        }
-        .thumbnail-container img.active-thumb {
-            border-color: #ff4081;
-            transform: scale(1.05);
-        }
-
-        .modal-content h2 {
-            color: #222;
-            font-size: 18px;
-            margin: 10px 0 5px;
-        }
-        .modal-price {
-            color: #ff4081;
-            font-weight: bold;
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-        .modal-desc-box {
-            background: #fff5f7;
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 13px;
-            color: #444;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            text-align: left;
-            white-space: pre-line;
-        }
-        
-        .modal-buttons {
-            display: flex;
-            gap: 12px;
-            position: sticky;
-            bottom: 0;
-            background: white;
-            padding: 10px 0;
-            border-top: 1px solid #eee;
-        }
-        .submit-whatsapp {
-            background-color: #25D366;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 25px;
-            font-weight: bold;
-            flex: 1;
-            cursor: pointer;
-            font-size: 15px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-        }
-        .close-btn {
-            background-color: #f1f1f1;
-            color: #333;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        /* Order Form Inputs Styling */
-        .order-form-container label {
-            font-size: 12px;
-            font-weight: bold;
-            color: #555;
-            display: block;
-            margin-top: 10px;
-            text-align: left;
-        }
-        .order-form-container input, .order-form-container textarea, .order-form-container select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 4px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 14px;
-            background: #fafafa;
-        }
-
-        /* Success & Tracking Screen Styling */
-        .success-box {
-            text-align: center;
-            padding: 10px;
-        }
-        .green-tick {
-            width: 70px;
-            height: 70px;
-            background-color: #25D366;
-            color: white;
-            font-size: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        }
-        .tracking-timeline {
-            text-align: left;
-            margin: 20px 0;
-            padding: 0;
-            list-style: none;
-            position: relative;
-        }
-        .tracking-timeline::before {
-            content: '';
-            position: absolute;
-            left: 14px;
-            top: 5px;
-            bottom: 5px;
-            width: 3px;
-            background: #25D366;
-        }
-        .tracking-step {
-            position: relative;
-            padding-left: 35px;
-            margin-bottom: 18px;
-            font-size: 13px;
-            color: #444;
-        }
-        .tracking-step::before {
-            content: '✓';
-            position: absolute;
-            left: 5px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .tracking-step.pending::before {
-            content: '•';
-            background: #ccc;
-        }
-        .tracking-step.pending {
-            color: #999;
-        }
+        .main-preview-img { width: 100%; height: 320px; object-fit: contain; background-color: #fff5f7; border-radius: 12px; }
+        .thumbnail-container { display: flex; gap: 8px; margin-bottom: 15px; overflow-x: auto; }
+        .thumbnail-container img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid #ddd; }
+        .thumbnail-container img.active-thumb { border-color: #ff4081; }
+        .modal-buttons { display: flex; gap: 10px; position: sticky; bottom: 0; background: white; padding: 10px 0; }
+        .submit-whatsapp { background-color: #ff4081; color: white; border: none; padding: 12px; border-radius: 25px; font-weight: bold; flex: 1; cursor: pointer; }
+        .close-btn { background-color: #f1f1f1; color: #333; border: none; padding: 12px 18px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+        .success-box { text-align: center; padding: 10px; }
+        .green-tick { width: 70px; height: 70px; background-color: #25D366; color: white; font-size: 38px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto 15px; }
+        .tracking-timeline { text-align: left; margin: 20px 0; padding: 0; list-style: none; position: relative; }
+        .tracking-step { position: relative; padding-left: 35px; margin-bottom: 18px; font-size: 13px; color: #444; }
     </style>
 </head>
 <body>
 
-    <!-- Hidden Audio Element -->
     <audio id="kuchuAudio" src="kuchu-puchu.mp3"></audio>
 
-    <!-- Navbar -->
     <div class="navbar">
-        <div class="brand-logo">
-            🛍️ KuchuPuchu <span>Trends</span>
-        </div>
+        <div class="brand-logo">🛍️ KuchuPuchu Trends 🐱 ✨</div>
+        <button class="login-btn" onclick="alert('Google Verified Login!')">👤 Login</button>
+    </div>
+    <div class="brand-subtitle">Cutest treats for your favourite person 🐾💕</div>
+
+    <div class="hero-card">
+        <h2>✨ Trendy finds, cute vibes & everyday fashion. 💕</h2>
+        <p>Discover handpicked dresses, accessories and little things that make your style feel a little more you.</p>
+        <button class="shop-col-btn" onclick="document.getElementById('productGrid').scrollIntoView({behavior: 'smooth'})">Shop Collection →</button>
     </div>
 
-    <!-- Main Banner -->
-    <header>
-        <h1>✨ Welcome to KuchuPuchu Trends ✨</h1>
-        <p>Cutest treats for your favourite person 💕</p>
-        <button class="voice-btn" onclick="playVoice()">
-            🎧 Tap to Play Message
-        </button>
-    </header>
+    <div class="action-pills">
+        <button class="pill-btn" onclick="document.getElementById('kuchuAudio').play()">Suno Kuchu Puchu 🥺</button>
+        <button class="pill-btn insta" onclick="window.open('https://www.instagram.com/kuchupuchutrends?stkn=dWI5cHJ0bnFta3pp', '_blank')">📸 Instagram</button>
+    </div>
 
-    <!-- Categories Bar -->
+    <div class="utilities-bar">
+        <input type="text" class="search-box" placeholder="🔍 Search products..." onkeyup="loadProducts(this.value)">
+        <button class="util-icon-btn" onclick="alert('Cart is empty')">🛒 Cart</button>
+    </div>
+
     <div class="categories">
-        <button class="active" onclick="filterProducts('all', event)">All</button>
-        <button onclick="filterProducts('accessory', event)">Accessories</button>
-        <button onclick="filterProducts('dress', event)">Dresses</button>
+        <button class="active" onclick="filterCat('all', event)">All</button>
+        <button onclick="filterCat('accessory', event)">Accessories</button>
+        <button onclick="filterCat('dress', event)">Dresses</button>
     </div>
 
-    <!-- Product Grid -->
-    <div class="product-container" id="productGrid">
+    <!-- Dynamic Product Grid loaded from JSON -->
+    <div class="product-container" id="productGrid"></div>
 
-        <!-- New Product: Stylish Fashion Accessory (₹250, XXS to 5XL Sizes) -->
-        <div class="product-card" data-category="accessory" data-code="GA-119" onclick="openDetailModal(
-            'Stylish Fashion Accessory Set', 
-            '₹ 250', 
-            'https://i.ibb.co/rfx7FTbj/1790310025468.jpg, https://i.ibb.co/kV14XG2m/1790310035617.jpg', 
-            '• Type: Stylish Fashion Accessory Set\n• Design: Modern Elegant Look with Multiple Angles\n• Material: Premium Quality Build\n• Occasion: Daily Wear, Parties & Special Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/rfx7FTbj/1790310025468.jpg" alt="Stylish Fashion Accessory Set">
-            </div>
-            <h3>Stylish Fashion Accessory Set</h3>
-            <p>₹ 250</p>
-            <button class="view-btn">View Product</button>
-        </div>
+    <a href="https://www.instagram.com/kuchupuchutrends?stkn=dWI5cHJ0bnFta3pp" target="_blank" class="floating-insta">📸</a>
 
-        <!-- Previous Products (All preserved) -->
-        <div class="product-card" data-category="dress" data-code="DR-340" onclick="openDetailModal(
-            'Designer Party Wear Dress', 
-            '₹ 340', 
-            'https://i.ibb.co/W4BdH4P1/1790066508594.jpg, https://i.ibb.co/rG7ZM9wz/1790067263808.jpg, https://i.ibb.co/JjshDh91/1790067268172.jpg', 
-            '• Type: Designer Party Wear Dress\n• Design: Elegant & Premium Modern Look\n• Material: High Quality Soft Fabric\n• Occasion: Parties, Weddings, Festive & Special Outings'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/W4BdH4P1/1790066508594.jpg" alt="Designer Party Wear Dress">
-            </div>
-            <h3>Designer Party Wear Dress</h3>
-            <p>₹ 340</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-495" onclick="openDetailModal(
-            'Designer Party Wear Dress', 
-            '₹ 495', 
-            'https://i.ibb.co/twbK2QHk/1789926575370.jpg, https://i.ibb.co/XxpTL0Dh/1789926579300.jpg, https://i.ibb.co/Gv4qn6sR/1789926582665.jpg', 
-            '• Type: Designer Party Wear Dress\n• Design: Elegant & Premium Modern Look\n• Material: High Quality Soft Fabric\n• Occasion: Parties, Weddings, Festive & Special Outings'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/twbK2QHk/1789926575370.jpg" alt="Designer Party Wear Dress">
-            </div>
-            <h3>Designer Party Wear Dress</h3>
-            <p>₹ 495</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-290" onclick="openDetailModal(
-            'Stylish 2-Piece Outfit Set', 
-            '₹ 290', 
-            'https://i.ibb.co/hx3jfWKH/RGRmy0CP/1789923942789.jpg, https://i.ibb.co/WpkHJSxM/Lhx074kc/1789923946312.jpg, https://i.ibb.co/0yXgcqYG/60Z3mYDW/1789923950492.jpg', 
-            '• Type: Stylish 2-Piece Outfit Set (Includes 2 Pieces)\n• Design: Modern Matching Set with Multiple Views\n• Material: High Quality Soft Fabric\n• Occasion: Casual Outings, Parties & Special Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/hx3jfWKH/RGRmy0CP/1789923942789.jpg" alt="Stylish 2-Piece Outfit Set">
-            </div>
-            <h3>Stylish 2-Piece Outfit Set</h3>
-            <p>₹ 290</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-225" onclick="openDetailModal(
-            'Modern Party Dress', 
-            '₹ 225', 
-            'https://i.ibb.co/7dbby0Nc/Nd77YGnh/1789923838042.jpg, https://i.ibb.co/7Lm6cYS/BFMSDzf/1789923844719.jpg', 
-            '• Type: Modern Party Dress\n• Design: Elegant & Trendy Look\n• Material: Premium Quality Fabric\n• Occasion: Parties, Casual Wear & Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/7dbby0Nc/Nd77YGnh/1789923838042.jpg" alt="Modern Party Dress">
-            </div>
-            <h3>Modern Party Dress</h3>
-            <p>₹ 225</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-250-2" onclick="openDetailModal(
-            'Elegant Ethnic Dress', 
-            '₹ 250', 
-            'https://i.ibb.co/GvxyQx2L/bgWT5WBZ/1789923788804.jpg, https://i.ibb.co/Lhk5tgdw/vvwYPd45/1789923794358.jpg', 
-            '• Type: Elegant Ethnic Dress\n• Design: Traditional Yet Modern Styling\n• Material: High Quality Soft Fabric\n• Occasion: Festive, Ethnic & Daily Wear'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/GvxyQx2L/bgWT5WBZ/1789923788804.jpg" alt="Elegant Ethnic Dress">
-            </div>
-            <h3>Elegant Ethnic Dress</h3>
-            <p>₹ 250</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-260-2" onclick="openDetailModal(
-            'Chic Fashion Dress', 
-            '₹ 260', 
-            'https://i.ibb.co/chtgBZ1y/WvFxhM6H/1789923724877.jpg, https://i.ibb.co/gMvThdVq/KjNqSDw4/1789923729070.jpg, https://i.ibb.co/BVSG85sc/TBF1zxhY/1789923732940.jpg', 
-            '• Type: Chic Fashion Dress\n• Design: Premium Look with Multiple Angles\n• Material: High Quality Fabric\n• Occasion: Parties & Special Outings'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/chtgBZ1y/WvFxhM6H/1789923724877.jpg" alt="Chic Fashion Dress">
-            </div>
-            <h3>Chic Fashion Dress</h3>
-            <p>₹ 260</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-260" onclick="openDetailModal(
-            'Trendy Casual Dress', 
-            '₹ 260', 
-            'https://i.ibb.co/S4t5CtwC/pBfbFfjF/1789923660867.jpg, https://i.ibb.co/Pv6d7jWB/FLDFS3YG/1789923665583.jpg, https://i.ibb.co/gFgscbxc/tPCy1w91/1789923669953.jpg', 
-            '• Type: Trendy Casual Dress\n• Design: Stylish Modern Cut\n• Material: Premium Quality Soft Fabric\n• Occasion: Daily Wear & Casual Outings'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/S4t5CtwC/pBfbFfjF/1789923660867.jpg" alt="Trendy Casual Dress">
-            </div>
-            <h3>Trendy Casual Dress</h3>
-            <p>₹ 260</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-635" onclick="openDetailModal(
-            'Premium Party Wear Designer Dress', 
-            '₹ 635', 
-            'https://i.ibb.co/GfBcmQMM/20mgJ3MM/1789923584543.jpg, https://i.ibb.co/5xnHTwmd/VpQ4V5Rd/1789923588840.jpg, https://i.ibb.co/N221qrfm/ZzzHrSvY/1789923593314.jpg, https://i.ibb.co/3960GKBG/RkrCZ8zZ/1789923598356.jpg', 
-            '• Type: Premium Party Wear Designer Dress\n• Design: Luxurious Look with Multiple Angles\n• Material: High-Grade Premium Fabric\n• Occasion: Weddings, Grand Parties & Festive Styling'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/GfBcmQMM/20mgJ3MM/1789923584543.jpg" alt="Premium Party Wear Designer Dress">
-            </div>
-            <h3>Premium Party Wear Designer Dress</h3>
-            <p>₹ 635</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-180" onclick="openDetailModal(
-            'Designer Casual Wear Dress', 
-            '₹ 180', 
-            'https://i.ibb.co/tMPgcZSq/MD5rp8bc/1789923484587.jpg, https://i.ibb.co/bgVCHJHc/Y7S1DZDH/1789923491336.jpg, https://i.ibb.co/gLnJh557/fzcHLhhS/1789923498680.jpg', 
-            '• Type: Designer Casual Wear Dress\n• Design: Comfortable & Stylish Look\n• Material: Soft Daily Wear Fabric\n• Occasion: Everyday Use & Casual Outings'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/tMPgcZSq/MD5rp8bc/1789923484587.jpg" alt="Designer Casual Wear Dress">
-            </div>
-            <h3>Designer Casual Wear Dress</h3>
-            <p>₹ 180</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-250" onclick="openDetailModal(
-            'Stylish Printed Dress', 
-            '₹ 250', 
-            'https://i.ibb.co/V07m5kKC/KcMwS81s/1789923423856.jpg, https://i.ibb.co/YFjPJVNb/VcBJbkL3/1789923427622.jpg, https://i.ibb.co/y3hxHWZ/R5hJRzs/1789923431741.jpg', 
-            '• Type: Stylish Printed Dress\n• Design: Modern Chic Print\n• Material: Premium Quality Fabric\n• Occasion: Parties, Outings & Festive Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/V07m5kKC/KcMwS81s/1789923423856.jpg" alt="Stylish Printed Dress">
-            </div>
-            <h3>Stylish Printed Dress</h3>
-            <p>₹ 250</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-299" onclick="openDetailModal(
-            'Stylish Printed Party Wear Dress', 
-            '₹ 299', 
-            'https://i.ibb.co/gM6k5tk3/1789923134514.jpg, https://i.ibb.co/7NkmSGyv/1789923138783.jpg, https://i.ibb.co/vxRQ3PDb/1789923147390.jpg, https://i.ibb.co/spnfSnsn/1789923151101.jpg', 
-            '• Type: Stylish Printed Party Wear Dress\n• Design: Trendy Modern Look with Multiple Angles\n• Material: High Quality Soft Fabric\n• Occasion: Parties, Casual Outings, Festive & Special Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/gM6k5tk3/1789923134514.jpg" alt="Stylish Printed Party Wear Dress">
-            </div>
-            <h3>Stylish Printed Party Wear Dress</h3>
-            <p>₹ 299</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-118" onclick="openDetailModal(
-            'Cute Daily Wear Accessory', 
-            '₹ 160', 
-            'https://i.ibb.co/cKz5SBcf/DP3XHJDc/1789923070130.jpg', 
-            '• Type: Cute Daily Wear Accessory\n• Design: Simple & Elegant Fashion Look\n• Material: Premium Quality Build\n• Occasion: Daily Wear & Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/cKz5SBcf/DP3XHJDc/1789923070130.jpg" alt="Cute Daily Wear Accessory">
-            </div>
-            <h3>Cute Daily Wear Accessory</h3>
-            <p>₹ 160</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-117" onclick="openDetailModal(
-            'Exquisite Fashion Crown / Tiara', 
-            '₹ 450', 
-            'https://i.ibb.co/7J3Y5Ty1/bg4WZydK/1789923030650.jpg', 
-            '• Type: Exquisite Fashion Crown / Tiara\n• Design: Premium Princess Style Embellishments\n• Material: High-Grade Metal Alloy\n• Occasion: Birthdays, Parties, Weddings & Festive Styling'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/7J3Y5Ty1/bg4WZydK/1789923030650.jpg" alt="Exquisite Fashion Crown / Tiara">
-            </div>
-            <h3>Exquisite Fashion Crown / Tiara</h3>
-            <p>₹ 450</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-116" onclick="openDetailModal(
-            'Chic Fashion Accessory', 
-            '₹ 210', 
-            'https://i.ibb.co/bjDDWqgr/Y4wwRY7t/1789922942135.jpg', 
-            '• Type: Chic Fashion Accessory\n• Design: Stylish & Modern Look\n• Material: Premium Quality Build\n• Occasion: Daily Wear, Parties & Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/bjDDWqgr/Y4wwRY7t/1789922942135.jpg" alt="Chic Fashion Accessory">
-            </div>
-            <h3>Chic Fashion Accessory</h3>
-            <p>₹ 210</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-115" onclick="openDetailModal(
-            'Trendy Girl Hair Accessory Set', 
-            '₹ 185', 
-            'https://i.ibb.co/35fYV4Mb/xKm8wXfb/1789922847456.jpg, https://i.ibb.co/hRFX6rjS/wNhJk8Xf/1789922851494.jpg, https://i.ibb.co/nNhwjmh9/gLsrJ9sN/1789922858719.jpg', 
-            '• Type: Trendy Girl Hair Accessory Set\n• Design: Multi-angle Aesthetic Look\n• Material: Premium Quality Build\n• Occasion: Daily Wear, Parties & Special Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/35fYV4Mb/xKm8wXfb/1789922847456.jpg" alt="Trendy Girl Hair Accessory Set">
-            </div>
-            <h3>Trendy Girl Hair Accessory Set</h3>
-            <p>₹ 185</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-114" onclick="openDetailModal(
-            'Stylish Hair Accessory', 
-            '₹ 160', 
-            'https://i.ibb.co/nMJrQhyB/Ld7S94yr/1789922764419.jpg', 
-            '• Type: Stylish Hair Accessory\n• Design: Modern Elegant Look\n• Material: High Quality Build\n• Occasion: Daily Wear, Styling & Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/nMJrQhyB/Ld7S94yr/1789922764419.jpg" alt="Stylish Hair Accessory">
-            </div>
-            <h3>Stylish Hair Accessory</h3>
-            <p>₹ 160</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-399" onclick="openDetailModal(
-            'Stylish Designer Printed Kurti', 
-            '₹ 399', 
-            'https://i.ibb.co/fzgwwqjh/1789849891555.jpg, https://i.ibb.co/LD6M4b9k/1789849884885.jpg, https://i.ibb.co/N2MnS2Tq/1789849877360.jpg', 
-            '• Type: Stylish Designer Printed Kurti\n• Design: Elegant Ethnic Wear with Premium Print\n• Material: High Quality Soft Fabric\n• Occasion: Daily Wear, Festive, College & Casual Outings'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/fzgwwqjh/1789849891555.jpg" alt="Stylish Designer Printed Kurti">
-            </div>
-            <h3>Stylish Designer Printed Kurti</h3>
-            <p>₹ 399</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="dress" data-code="DR-275" onclick="openDetailModal(
-            'Stylish Yellow Floral Printed Kurti', 
-            '₹ 275', 
-            'https://i.ibb.co/QFwmBKsg/1789876793498.jpg, https://i.ibb.co/spTxwLrY/1789876797315.jpg, https://i.ibb.co/nsQnnMdD/1789876801435.jpg, https://i.ibb.co/cKP210Tt/1789876807054.jpg', 
-            '• Type: Stylish Yellow Floral Printed Kurti\n• Design: Elegant Traditional & Casual Ethnic Wear\n• Material: Premium Quality Soft Fabric\n• Occasion: Daily Wear, College, Festive & Casual Outings'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/QFwmBKsg/1789876793498.jpg" alt="Stylish Yellow Floral Printed Kurti">
-            </div>
-            <h3>Stylish Yellow Floral Printed Kurti</h3>
-            <p>₹ 275</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-112" onclick="openDetailModal(
-            'Stylish Modern Fashion Accessory', 
-            '₹ 130', 
-            'https://i.ibb.co/B51YHC5R/1789840653079.jpg, https://i.ibb.co/q3WL9sqm/1789840646774.jpg, https://i.ibb.co/MD8s46Lm/1789840642968.jpg', 
-            '• Type: Stylish Modern Fashion Accessory\n• Design: Premium Aesthetic Look with Multiple Angles\n• Material: High-Quality Build\n• Occasion: Daily Wear, Parties & Special Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/B51YHC5R/1789840653079.jpg" alt="Stylish Modern Fashion Accessory">
-            </div>
-            <h3>Stylish Modern Fashion Accessory</h3>
-            <p>₹ 130</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-111" onclick="openDetailModal(
-            'Elegant Modern Girl Fashion Accessory', 
-            '₹ 285', 
-            'https://i.ibb.co/Xrbrr68Q/1789837920433.jpg, https://i.ibb.co/PvYjTYtk/1789837916465.jpg, https://i.ibb.co/tPYSX5FY/1789837912522.jpg', 
-            '• Type: Elegant Modern Girl Fashion Accessory\n• Design: Premium Aesthetic Look with Multiple Angles\n• Material: High-Quality Build\n• Occasion: Daily Wear, Parties & Special Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/Xrbrr68Q/1789837920433.jpg" alt="Elegant Modern Girl Fashion Accessory">
-            </div>
-            <h3>Elegant Modern Girl Fashion Accessory</h3>
-            <p>₹ 285</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-110" onclick="openDetailModal(
-            'Chic Trendy Girl Fashion Accessory', 
-            '₹ 192', 
-            'https://i.ibb.co/tMZBSfps/1789813303556.jpg, https://i.ibb.co/MyMhNq1g/1789813297017.jpg, https://i.ibb.co/Kz9n2xhD/1789813293069.jpg, https://i.ibb.co/20sMCTwv/1789813288724.jpg', 
-            '• Type: Chic Trendy Girl Fashion Accessory\n• Design: Modern Elegant Look with Multiple Angles\n• Material: Premium Quality Build\n• Occasion: Daily Wear, Parties & Special Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/tMZBSfps/1789813303556.jpg" alt="Chic Trendy Girl Fashion Accessory">
-            </div>
-            <h3>Chic Trendy Girl Fashion Accessory</h3>
-            <p>₹ 192</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-109" onclick="openDetailModal(
-            'Trendy Stylish Girl Accessory Set', 
-            '₹ 259', 
-            'https://i.ibb.co/3yvJF3r3/1789785306716.jpg, https://i.ibb.co/r2HSnhPy/1789785301998.jpg, https://i.ibb.co/fdL7Wdsp/1789785293172.jpg', 
-            '• Type: Trendy Stylish Girl Accessory Set\n• Design: Modern Fashion Look with Multiple Views\n• Material: Premium Quality Build\n• Occasion: Daily Wear, Parties & Special Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/3yvJF3r3/1789785306716.jpg" alt="Trendy Stylish Girl Accessory Set">
-            </div>
-            <h3>Trendy Stylish Girl Accessory Set</h3>
-            <p>₹ 259</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-108" onclick="openDetailModal(
-            'Designer Premium Girl Accessory', 
-            '₹ 485', 
-            'https://i.ibb.co/xqDdp7d4/Screenshot-2026-0917-075849.png', 
-            '• Type: Designer Premium Girl Accessory\n• Trend: Latest Stylish & Modern Fashion Look\n• Material: Premium Quality Build\n• Occasion: Daily Wear, Parties & Special Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/xqDdp7d4/Screenshot-2026-0917-075849.png" alt="Designer Premium Girl Accessory">
-            </div>
-            <h3>Designer Premium Girl Accessory</h3>
-            <p>₹ 485</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-107" onclick="openDetailModal(
-            'Designer Trendy Girl Accessory', 
-            '₹ 165', 
-            'https://i.ibb.co/WvjpMZKY/Screenshot-2026-0916-222621.png', 
-            '• Type: Designer Girl Accessory\n• Trend: Stylish & Modern Fashion Look\n• Material: Premium Quality Build\n• Occasion: Daily Wear, Parties & Gifting'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/WvjpMZKY/Screenshot-2026-0916-222621.png" alt="Designer Trendy Girl Accessory">
-            </div>
-            <h3>Designer Trendy Girl Accessory</h3>
-            <p>₹ 165</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="KB-01" onclick="openDetailModal(
-            'Traditional Kashmiri Bangles Set', 
-            '₹ 499', 
-            'https://i.ibb.co/NgNHV0Qz/Screenshot-20260914-224725.jpg', 
-            '• Type: Traditional Kashmiri Bangles Set\n• Material: Premium Metal & Stones\n• Occasion: Ethnic, Weddings & Festive Wear\n• Design: Intricate Traditional Craftsmanship'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/NgNHV0Qz/Screenshot-20260914-224725.jpg" alt="Traditional Kashmiri Bangles Set">
-            </div>
-            <h3>Traditional Kashmiri Bangles Set</h3>
-            <p>₹ 499</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-101" onclick="openDetailModal(
-            'Combo of 12 Pair Earrings with Velvet Box', 
-            '₹ 673', 
-            'https://i.ibb.co/Ld0X8PQv/Screenshot-2026-0816-064613.jpg', 
-            '• Type: Jhumkhas (12 Pair Combo)\n• Trend: Floral, Oxidised Silver\n• Material: Alloy with Artificial Stones & Beads\n• Occasion: Ethnic Party Wear\n• Includes: Velvet Earrings Folding Box'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/Ld0X8PQv/Screenshot-2026-0816-064613.jpg" alt="Combo of 12 Pair Earrings with Velvet Box">
-            </div>
-            <h3>Combo of 12 Pair Earrings with Velvet Box</h3>
-            <p>₹ 673</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-102" onclick="openDetailModal(
-            'Vintage Floral Embroidered Lace Hair Bow', 
-            '₹ 150', 
-            'https://i.ibb.co/TBQ2DcYN/IMG-20260817-114459.png', 
-            '• Type: Aesthetic Lace Hair Bow / Bun Clip\n• Trend: Vintage Floral Embroidery with Pearl Accents\n• Material: Premium Fabric & Lace\n• Color: White Floral\n• Occasion: Partywear & Everyday Aesthetic Look'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/TBQ2DcYN/IMG-20260817-114459.png" alt="Vintage Floral Embroidered Lace Hair Bow">
-            </div>
-            <h3>Vintage Floral Embroidered Lace Hair Bow</h3>
-            <p>₹ 150</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-103" onclick="openDetailModal(
-            'LED Light Up Butterfly Hair Clip (Pack of 2)', 
-            '₹ 199', 
-            'https://i.ibb.co/mVgrwGCz/IMG-20260817-121041.jpg', 
-            '• Type: Creative LED Flashing Hair Clip (Pack of 2)\n• Feature: Glowing Optical Fiber Butterfly Braid\n• Color: Multicolor Light\n• Occasion: Parties, Concerts, Festivals & Night Styling'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/mVgrwGCz/IMG-20260817-121041.jpg" alt="LED Light Up Butterfly Hair Clip (Pack of 2)">
-            </div>
-            <h3>LED Light Up Butterfly Hair Clip (Pack of 2)</h3>
-            <p>₹ 199</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-104" onclick="openDetailModal(
-            'Exquisite Princess Pearl Butterfly Tiara Crown', 
-            '₹ 349', 
-            'https://i.ibb.co/DPsmtDdc/IMG-20260817-124016.jpg', 
-            '• Type: Princess Tiara Crown / Hair Band\n• Design: Pearl & Butterfly Embellishments\n• Material: High-Grade Metal Alloy\n• Color: White / Silver Finish\n• Occasion: Birthdays, Parties, Weddings & Festive Styling'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/DPsmtDdc/IMG-20260817-124016.jpg" alt="Exquisite Princess Pearl Butterfly Tiara Crown">
-            </div>
-            <h3>Exquisite Princess Pearl Butterfly Tiara Crown</h3>
-            <p>₹ 349</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-105" onclick="openDetailModal(
-            '12 Pcs Kids Rainbow Braids Hair Clip-in Extensions', 
-            '₹ 199', 
-            'https://i.ibb.co/C5whJn3n/IMG-20260817-130237.jpg', 
-            '• Type: Clip-In Hair Extensions (Pack of 12)\n• Style: Colorful Rainbow Braids\n• Material: Silicone Clips & Synthetic Braids\n• Color: Vibrant Multicolor\n• Occasion: Parties, School Events, Styling & Everyday Fashion'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/C5whJn3n/IMG-20260817-130237.jpg" alt="12 Pcs Kids Rainbow Braids Hair Clip-in Extensions">
-            </div>
-            <h3>12 Pcs Kids Rainbow Braids Hair Clip-in Extensions</h3>
-            <p>₹ 199</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-        <div class="product-card" data-category="accessory" data-code="GA-106" onclick="openDetailModal(
-            'Soft Fur Scrunchies Combo (Pack of 8)', 
-            '₹ 149', 
-            'https://i.ibb.co/qYP8Tszc/IMG-20260818-120223.jpg', 
-            '• Type: Elastic Fur Scrunchies (Pack of 8)\n• Material: Ultra-Soft Plush Fur & Elastic Fabric\n• Color: Multicolor Pastel & Solid Mix\n• Feature: Gentle on hair, prevents breakage & stylish aesthetic look\n• Occasion: Daily Use, College & Casual Outings'
-        )">
-            <div class="product-img-box">
-                <img src="https://i.ibb.co/qYP8Tszc/IMG-20260818-120223.jpg" alt="Soft Fur Scrunchies Combo (Pack of 8)">
-            </div>
-            <h3>Soft Fur Scrunchies Combo (Pack of 8)</h3>
-            <p>₹ 149</p>
-            <button class="view-btn">View Product</button>
-        </div>
-
-    </div>
-
-    <!-- Meesho Style Big Product Details Modal -->
+    <!-- Modals -->
     <div id="detailModal" class="modal">
         <div class="modal-content">
-            <!-- Big Main Image -->
-            <img id="mainPreviewImg" class="main-preview-img" src="" alt="Product View">
-            
-            <!-- Thumbnail Gallery for Multiple Photos -->
+            <img id="mainPreviewImg" class="main-preview-img" src="" alt="Preview">
             <div class="thumbnail-container" id="thumbnailContainer"></div>
-
             <h2 id="detailTitle"></h2>
             <div id="detailPrice" class="modal-price"></div>
-            
-            <div style="font-weight: bold; font-size: 13px; text-align: left; margin-bottom: 5px; color: #555;">Product Details:</div>
+            <div style="font-weight: bold; font-size: 12px; margin-bottom: 4px;">Product Details:</div>
             <div id="detailDesc" class="modal-desc-box"></div>
-            
             <div class="modal-buttons">
-                <button type="button" class="close-btn" onclick="closeDetailModal()">Close</button>
-                <button type="button" class="submit-whatsapp" style="background-color: #ff4081;" onclick="openOrderForm()">Order Now</button>
+                <button class="close-btn" onclick="document.getElementById('detailModal').style.display='none'">Close</button>
+                <button class="submit-whatsapp" onclick="openOrderForm()">Order Now 🛍️</button>
             </div>
         </div>
     </div>
 
-    <!-- Order Form Modal (Meesho Style Bottom Sheet) -->
     <div id="orderModal" class="modal">
-        <div class="modal-content order-form-container">
-            <h2 id="modalProductTitle" style="text-align: center; font-size: 16px; color: #ff4081; margin-bottom: 15px;">Enter Order Details</h2>
-            <form id="whatsappForm" onsubmit="confirmOrderAction(event)">
+        <div class="modal-content">
+            <h2>Enter Order Details</h2>
+            <form onsubmit="confirmOrder(event)">
                 <label>Select Size:</label>
-                <select id="custSize" required>
+                <select id="custSize" required style="width:100%; padding:8px; margin:5px 0;">
                     <option value="" disabled selected>Choose size</option>
-                    <option value="XXS">XXS (Double Extra Small)</option>
-                    <option value="XS">XS (Extra Small)</option>
-                    <option value="S">S (Small)</option>
-                    <option value="M">M (Medium)</option>
-                    <option value="L">L (Large)</option>
-                    <option value="XL">XL (Extra Large)</option>
-                    <option value="XXL">XXL (Double Extra Large)</option>
-                    <option value="3XL">3XL (Triple Extra Large)</option>
-                    <option value="4XL">4XL (Quadruple Extra Large)</option>
-                    <option value="5XL">5XL (Quintuple Extra Large)</option>
+                    <option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="XXL">XXL</option>
                 </select>
-
-                <label>Quantity (Max 20):</label>
-                <input type="number" id="custQty" min="1" max="20" value="1" required>
-
                 <label>Your Name:</label>
-                <input type="text" id="custName" required placeholder="Enter your full name">
-
+                <input type="text" id="custName" required style="width:100%; padding:8px; margin:5px 0;" placeholder="Full name">
                 <label>Mobile Number:</label>
-                <input type="tel" id="custMobile" required placeholder="Enter mobile number">
-
-                <label>Delivery Address:</label>
-                <textarea id="custAddress" rows="2" required placeholder="House No, Street, City"></textarea>
-
-                <label>Pin Code:</label>
-                <input type="text" id="custPincode" required placeholder="Pin Code">
-
-                <div class="modal-buttons" style="margin-top: 20px;">
-                    <button type="button" class="close-btn" onclick="closeOrderForm()">Back</button>
+                <input type="tel" id="custMobile" required style="width:100%; padding:8px; margin:5px 0;" placeholder="Mobile number">
+                <label>Address & Pincode:</label>
+                <textarea id="custAddress" rows="2" required style="width:100%; padding:8px; margin:5px 0;" placeholder="Delivery Address"></textarea>
+                <div class="modal-buttons">
+                    <button type="button" class="close-btn" onclick="document.getElementById('orderModal').style.display='none'">Back</button>
                     <button type="submit" class="submit-whatsapp">Confirm Order</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Meesho Style Order Tracking / Success Modal -->
     <div id="trackingModal" class="modal">
         <div class="modal-content success-box">
             <div class="green-tick">✓</div>
-            <h2 style="color: #25D366; margin-bottom: 5px;">Order Confirmed!</h2>
-            <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Thank you for shopping with KuchuPuchu Trends 💕</p>
-            
-            <div style="background: #fff5f7; padding: 12px; border-radius: 10px; text-align: left; font-size: 13px; margin-bottom: 15px;">
-                <div style="font-weight: bold; color: #ff4081; margin-bottom: 4px;" id="trackProductName"></div>
-                <div style="color: #444;" id="trackDetailsSummary"></div>
-            </div>
-
-            <div style="font-weight: bold; font-size: 13px; text-align: left; color: #333; margin-bottom: 5px;">Live Order Status:</div>
+            <h2 style="color: #25D366;">Order Confirmed!</h2>
+            <p style="font-size: 12px; color: #666;">Thank you for shopping with KuchuPuchu Trends 💕</p>
+            <div style="background: #fff5f7; padding: 10px; border-radius: 8px; text-align: left; font-size: 12px;" id="orderSummaryText"></div>
             <ul class="tracking-timeline">
-                <li class="tracking-step">
-                    <strong>Order Confirmed</strong><br><span style="font-size: 11px; color: #666;">Day 1: Order successfully placed & verified</span>
-                </li>
-                <li class="tracking-step pending">
-                    <strong>Order Shipped / Packed</strong><br><span style="font-size: 11px; color: #888;">Day 2: Quality check & packaging in progress</span>
-                </li>
-                <li class="tracking-step pending">
-                    <strong>Out for Delivery / In Route</strong><br><span style="font-size: 11px; color: #888;">Day 3: Dispatched to your nearest hub</span>
-                </li>
-                <li class="tracking-step pending">
-                    <strong>Order Delivered</strong><br><span style="font-size: 11px; color: #888;">Day 4: Expected delivery</span>
-                </li>
+                <li class="tracking-step"><strong>Order Confirmed</strong> (Day 1)</li>
+                <li class="tracking-step" style="color:#999;">Order Shipped (Day 2)</li>
+                <li class="tracking-step" style="color:#999;">Out for Delivery (Day 3)</li>
+                <li class="tracking-step" style="color:#999;">Delivered (Day 4)</li>
             </ul>
-
-            <div class="modal-buttons" style="margin-top: 15px;">
-                <button type="button" class="submit-whatsapp" style="background-color: #ff4081;" onclick="closeTrackingModal()">Done / Continue Shopping</button>
-            </div>
+            <button class="submit-whatsapp" style="width:100%;" onclick="document.getElementById('trackingModal').style.display='none'">Done</button>
         </div>
     </div>
 
     <script>
-        function playVoice() {
-            let audio = document.getElementById('kuchuAudio');
-            audio.play().catch(error => {
-                alert("Please tap again to play audio!");
-            });
+        let allProducts = [];
+        let currentProdName = "", currentProdPrice = "";
+
+        // Fetch products from external JSON file (Google Sheets / JSON support)
+        async function loadProducts(searchQuery = "") {
+            try {
+                if (allProducts.length === 0) {
+                    let res = await fetch('products.json');
+                    allProducts = await res.json();
+                }
+                let grid = document.getElementById('productGrid');
+                grid.innerHTML = "";
+                
+                let filtered = allProducts.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
+                
+                filtered.forEach(p => {
+                    let firstImg = p.images.split(',')[0].trim();
+                    let card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.setAttribute('data-category', p.category);
+                    card.innerHTML = `
+                        <div class="product-img-box"><img src="${firstImg}" alt=""></div>
+                        <div class="product-info-pad">
+                            <h3>${p.name}</h3>
+                            <div class="price">${p.price}</div>
+                        </div>
+                        <button class="view-details-btn" onclick='openModal(${JSON.stringify(p)})'>View Details</button>
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch(e) {
+                console.log("Database error or offline mode", e);
+            }
         }
 
-        let currentProduct = "";
-        let currentPrice = "";
-        let currentImgUrl = ""; 
-
-        function openDetailModal(name, price, imgString, desc) {
-            currentProduct = name;
-            currentPrice = price;
+        function openModal(p) {
+            currentProdName = p.name;
+            currentProdPrice = p.price;
+            document.getElementById('detailTitle').innerText = p.name;
+            document.getElementById('detailPrice').innerText = p.price;
+            document.getElementById('detailDesc').innerText = p.desc;
             
-            document.getElementById('detailTitle').innerText = name;
-            document.getElementById('detailPrice').innerText = price;
-            document.getElementById('detailDesc').innerText = desc;
-            
-            let images = imgString.split(',');
+            let imgs = p.images.split(',');
             let mainImg = document.getElementById('mainPreviewImg');
-            let thumbContainer = document.getElementById('thumbnailContainer');
+            let thumbBox = document.getElementById('thumbnailContainer');
+            thumbBox.innerHTML = "";
+            mainImg.src = imgs[0].trim();
             
-            thumbContainer.innerHTML = '';
-            mainImg.src = images[0].trim();
-            currentImgUrl = images[0].trim(); 
-
-            images.forEach((imgUrl, index) => {
-                let thumb = document.createElement('img');
-                let cleanUrl = imgUrl.trim();
-                thumb.src = cleanUrl;
-                if(index === 0) thumb.classList.add('active-thumb');
-                
-                thumb.onclick = function() {
+            imgs.forEach((img, idx) => {
+                let t = document.createElement('img');
+                let cleanUrl = img.trim();
+                t.src = cleanUrl;
+                if(idx === 0) t.className = 'active-thumb';
+                t.onclick = () => {
                     mainImg.src = cleanUrl;
-                    currentImgUrl = cleanUrl; 
-                    let allThumbs = thumbContainer.querySelectorAll('img');
-                    allThumbs.forEach(t => t.classList.remove('active-thumb'));
-                    thumb.classList.add('active-thumb');
+                    thumbBox.querySelectorAll('img').forEach(im => im.classList.remove('active-thumb'));
+                    t.classList.add('active-thumb');
                 };
-                thumbContainer.appendChild(thumb);
+                thumbBox.appendChild(t);
             });
-            
             document.getElementById('detailModal').style.display = 'flex';
         }
 
-        function closeDetailModal() {
-            document.getElementById('detailModal').style.display = 'none';
-        }
-
         function openOrderForm() {
-            closeDetailModal();
-            document.getElementById('modalProductTitle').innerText = "Order: " + currentProduct;
+            document.getElementById('detailModal').style.display = 'none';
             document.getElementById('orderModal').style.display = 'flex';
         }
 
-        function closeOrderForm() {
-            document.getElementById('orderModal').style.display = 'none';
-        }
-
-        function closeTrackingModal() {
-            document.getElementById('trackingModal').style.display = 'none';
-        }
-
-        function confirmOrderAction(event) {
-            event.preventDefault();
-            
+        function confirmOrder(e) {
+            e.preventDefault();
             let size = document.getElementById('custSize').value;
-            let qty = document.getElementById('custQty').value;
             let name = document.getElementById('custName').value;
-            let mobile = document.getElementById('custMobile').value;
-            let address = document.getElementById('custAddress').value;
-            let pincode = document.getElementById('custPincode').value;
-
-            // Set tracking summary details
-            document.getElementById('trackProductName').innerText = currentProduct + " (" + currentPrice + ")";
-            document.getElementById('trackDetailsSummary').innerHTML = 
-                "<b>Size:</b> " + size + " | <b>Qty:</b> " + qty + "<br>" +
-                "<b>Customer:</b> " + name + " (" + mobile + ")<br>" +
-                "<b>Delivery To:</b> " + address + " - " + pincode;
-
-            // Close order form and show Meesho style tracking modal
-            closeOrderForm();
-            document.getElementById('trackingModal').style.display = 'flex';
+            let addr = document.getElementById('custAddress').value;
             
-            // Reset form
-            document.getElementById('whatsappForm').reset();
+            document.getElementById('orderSummaryText').innerHTML = `<b>Product:</b> ${currentProdName} (${currentProdPrice})<br><b>Size:</b> ${size}<br><b>Customer:</b> ${name}<br><b>Address:</b> ${addr}`;
+            document.getElementById('orderModal').style.display = 'none';
+            document.getElementById('trackingModal').style.display = 'flex';
         }
 
-        function filterProducts(category, event) {
-            let buttons = document.querySelectorAll('.categories button');
-            buttons.forEach(btn => btn.classList.remove('active'));
+        function filterCat(cat, event) {
+            document.querySelectorAll('.categories button').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
-
-            let products = document.querySelectorAll('.product-card');
-            products.forEach(product => {
-                if (category === 'all' || product.getAttribute('data-category') === category) {
-                    product.style.display = 'flex';
+            document.querySelectorAll('.product-card').forEach(card => {
+                if(cat === 'all' || card.getAttribute('data-category') === cat) {
+                    card.style.display = 'flex';
                 } else {
-                    product.style.display = 'none';
+                    card.style.display = 'none';
                 }
             });
         }
-    </script>
 
+        loadProducts();
+    </script>
 </body>
 </html>

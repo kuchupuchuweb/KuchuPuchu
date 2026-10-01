@@ -1,0 +1,20 @@
+[
+  {
+    "id": "GA-119",
+    "category": "accessory",
+    "name": "Stylish Fashion Accessory Set",
+    "price": "₹ 250",
+    "images": "https://i.ibb.co/rfx7FTbj/1790310025468.jpg, https://i.ibb.co/kV14XG2m/1790310035617.jpg",
+    "desc": "• Type: Stylish Fashion Accessory Set\n• Design: Modern Elegant Look with Multiple Angles\n• Material: Premium Quality Build\n• Occasion: Daily Wear, Parties & Special Gifting",
+    "sizes": "XXS, XS, S, M, L, XL, XXL, 3XL, 4XL, 5XL"
+  },
+  {
+    "id": "DR-340",
+    "category": "dress",
+    "name": "Designer Party Wear Dress",
+    "price": "₹ 340",
+    "images": "https://i.ibb.co/W4BdH4P1/1790066508594.jpg, https://i.ibb.co/rG7ZM9wz/1790067263808.jpg, https://i.ibb.co/JjshDh91/1790067268172.jpg",
+    "desc": "• Type: Designer Party Wear Dress\n• Design: Elegant & Premium Modern Look\n• Material: High Quality Soft Fabric\n• Occasion: Parties, Weddings, Festive & Special Outings",
+    "sizes": "XXS, XS, S, M, L, XL, XXL, 3XL, 4XL, 5XL"
+  }
+]
